@@ -1,0 +1,65 @@
+name: Publish Docker
+
+on: [push]
+
+jobs:
+
+  latest-alpine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build latest Alpine version and publish to GitHub Container Registry
+        uses: elgohr/Publish-Docker-Github-Action@2.22
+        with:
+          name: mileschou/php-tester
+          tags: "latest,alpine,8.0-alpine"
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+          registry: ghcr.io
+          dockerfile: 8.0/alpine/Dockerfile
+
+  latest-apache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build latest Apache version and publish to GitHub Container Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: mileschou/php-tester
+          tags: "apache,8.0-apache"
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+          registry: ghcr.io
+          dockerfile: 8.0/apache/Dockerfile
+
+  alpine:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ["7.4", "7.3", "7.2", "7.1", "7.0", "5.6", "5.5"]
+    steps:
+      - uses: actions/checkout@master
+      - name: Build PHP ${{ matrix.version }} Alpine and publish to GitHub Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: mileschou/php-tester:${{ matrix.version }}-alpine
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+          registry: ghcr.io
+          dockerfile: ${{ matrix.version }}/alpine/Dockerfile
+
+  apache:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ["7.4", "7.3", "7.2", "7.1", "7.0", "5.6", "5.5"]
+    steps:
+      - uses: actions/checkout@master
+      - name: Build PHP ${{ matrix.version }} Apache and publish to GitHub Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: mileschou/php-tester:${{ matrix.version }}-apache
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+          registry: ghcr.io
+          dockerfile: ${{ matrix.version }}/apache/Dockerfile

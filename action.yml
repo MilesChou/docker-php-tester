@@ -1,0 +1,8 @@
+name: PHP tester
+description: An action for test PHP project with common extensions.
+branding:
+  icon: code
+  color: green
+runs:
+  using: docker
+  image: 8.0/alpine/Dockerfile
