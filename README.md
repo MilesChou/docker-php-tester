@@ -1,4 +1,4 @@
-# PHP tester
+# Docker image for PHP tester
 
 [![GitHub Release][ico-release]][link-github-release]
 [![License][ico-license]](LICENSE)
@@ -12,7 +12,7 @@ Docker image and GitHub Actions for test PHP env. Base on Docker official [PHP](
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 [link-github-release]: https://github.com/MilesChou/docker-php-tester/releases
 
-## Usage for GitHub Container Registry
+## Usage on GitHub Container Registry
 
 See [GitHub Container Registry](https://github.com/users/MilesChou/packages/container/package/php-tester). Use the following command to pull image:
 

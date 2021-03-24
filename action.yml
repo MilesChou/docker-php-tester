@@ -5,4 +5,4 @@ branding:
   color: green
 runs:
   using: docker
-  image: 8.0/alpine/Dockerfile
+  image: 8.0/Dockerfile
