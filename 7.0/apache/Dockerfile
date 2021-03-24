@@ -35,10 +35,12 @@ RUN set -xe && \
         && \
         pecl install \
             memcached \
+            mongodb \
             redis \
         && \
         docker-php-ext-enable \
             memcached \
+            mongodb \
             redis \
         && \
         php -m

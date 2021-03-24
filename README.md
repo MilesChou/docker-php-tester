@@ -53,6 +53,7 @@ docker pull ghcr.io/mileschou/php-tester
 * mcrypt (not supported in PHP 7.2+)
 * memcached (using 2.2.0 in PHP 5.x)
     + [2.2.0](https://pecl.php.net/package/memcached/2.2.0) in PHP 5.x
+* mongodb (using on PHP 7.x and PHP 8.x)
 * pdo_mysql
 * [redis](https://pecl.php.net/package/redis)
     + 5.0+ in PHP 7.x
