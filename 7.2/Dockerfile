@@ -1,4 +1,4 @@
-FROM ghcr.io/mileschou/xdebug:7.0-apache
+FROM ghcr.io/mileschou/xdebug:7.2
 
 LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-php-tester" \
     maintainer="MilesChou <jangconan@gmail.com>"
@@ -10,7 +10,6 @@ RUN set -xe && \
         apt-get update -y && apt-get install -y --no-install-recommends --no-install-suggests \
             libgmp-dev \
             libjpeg-dev \
-            libmcrypt-dev \
             libmemcached-dev \
             libpng-dev \
             libxml2-dev \
@@ -27,7 +26,6 @@ RUN set -xe && \
             exif \
             gd \
             gmp \
-            mcrypt \
             pdo_mysql \
             soap \
             sockets \

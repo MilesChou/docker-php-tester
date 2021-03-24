@@ -1,4 +1,4 @@
-FROM ghcr.io/mileschou/xdebug:7.0-apache
+FROM ghcr.io/mileschou/xdebug:7.1
 
 LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-php-tester" \
     maintainer="MilesChou <jangconan@gmail.com>"

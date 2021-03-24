@@ -1,8 +1,25 @@
-name: Publish Docker
+name: Publish Docker image
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
+
+  latest-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build latest Alpine version and publish to GitHub Container Registry
+        uses: elgohr/Publish-Docker-Github-Action@2.22
+        with:
+          name: mileschou/php-tester
+          tags: "latest,8.0,cli,8.0-cli"
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+          registry: ghcr.io
+          dockerfile: 8.0/Dockerfile
 
   latest-alpine:
     runs-on: ubuntu-latest
@@ -12,7 +29,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@2.22
         with:
           name: mileschou/php-tester
-          tags: "latest,alpine,8.0-alpine"
+          tags: "alpine,8.0-alpine"
           username: ${{ secrets.GHCR_USERNAME }}
           password: ${{ secrets.GHCR_PAT }}
           registry: ghcr.io
@@ -31,6 +48,22 @@ jobs:
           password: ${{ secrets.GHCR_PAT }}
           registry: ghcr.io
           dockerfile: 8.0/apache/Dockerfile
+
+  cli:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ["7.4", "7.3", "7.2", "7.1", "7.0", "5.6", "5.5"]
+    steps:
+      - uses: actions/checkout@master
+      - name: Build PHP ${{ matrix.version }} CLI and publish to GitHub Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: mileschou/php-tester:${{ matrix.version }}-alpine
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+          registry: ghcr.io
+          dockerfile: ${{ matrix.version }}/Dockerfile
 
   alpine:
     runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-FROM ghcr.io/mileschou/xdebug:7.0-apache
+FROM ghcr.io/mileschou/xdebug:7.4
 
 LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-php-tester" \
     maintainer="MilesChou <jangconan@gmail.com>"
@@ -10,24 +10,23 @@ RUN set -xe && \
         apt-get update -y && apt-get install -y --no-install-recommends --no-install-suggests \
             libgmp-dev \
             libjpeg-dev \
-            libmcrypt-dev \
             libmemcached-dev \
             libpng-dev \
             libxml2-dev \
+            libzip-dev \
             zlib1g-dev \
         && \
         apt-get clean && rm -rf /var/lib/apt/lists/* \
         && \
+        # See https://github.com/docker-library/php/issues/912#issuecomment-559918036
         docker-php-ext-configure gd \
-            --with-jpeg-dir=/usr/include/ \
-            --with-png-dir=/usr/include/ \
+            --with-jpeg \
         && \
         docker-php-ext-install -j $(getconf _NPROCESSORS_ONLN) \
             bcmath \
             exif \
             gd \
             gmp \
-            mcrypt \
             pdo_mysql \
             soap \
             sockets \

@@ -1,4 +1,4 @@
-FROM ghcr.io/mileschou/xdebug:7.0-apache
+FROM ghcr.io/mileschou/xdebug:5.5
 
 LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-php-tester" \
     maintainer="MilesChou <jangconan@gmail.com>"
@@ -7,6 +7,10 @@ ENV COMPOSER_PATH /usr/local/bin/composer
 
 # Install extensions
 RUN set -xe && \
+        # workaround for archive source list
+        # See https://unix.stackexchange.com/questions/508724/failed-to-fetch-jessie-backports-repository/508791
+        sed -i '/deb http:\/\/httpredir.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list \
+        && \
         apt-get update -y && apt-get install -y --no-install-recommends --no-install-suggests \
             libgmp-dev \
             libjpeg-dev \
@@ -22,6 +26,9 @@ RUN set -xe && \
             --with-jpeg-dir=/usr/include/ \
             --with-png-dir=/usr/include/ \
         && \
+        # See https://stackoverflow.com/questions/19894168
+        ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
+        && \
         docker-php-ext-install -j $(getconf _NPROCESSORS_ONLN) \
             bcmath \
             exif \
@@ -34,13 +41,11 @@ RUN set -xe && \
             zip \
         && \
         pecl install \
-            memcached \
-            mongodb \
-            redis \
+            memcached-2.2.0 \
+            redis-4.3.0 \
         && \
         docker-php-ext-enable \
             memcached \
-            mongodb \
             redis \
         && \
         php -m
