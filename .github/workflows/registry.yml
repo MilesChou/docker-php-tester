@@ -59,7 +59,8 @@ jobs:
       - name: Build PHP ${{ matrix.version }} CLI and publish to GitHub Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: mileschou/php-tester:${{ matrix.version }}-alpine
+          name: mileschou/php-tester
+          tags: ${{ matrix.version }},${{ matrix.version }}-cli
           username: ${{ secrets.GHCR_USERNAME }}
           password: ${{ secrets.GHCR_PAT }}
           registry: ghcr.io
