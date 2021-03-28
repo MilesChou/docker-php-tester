@@ -15,6 +15,7 @@ RUN set -xe && \
             libpng-dev \
             libxml2-dev \
             zlib1g-dev \
+            unzip \
         && \
         apt-get clean && rm -rf /var/lib/apt/lists/* \
         && \

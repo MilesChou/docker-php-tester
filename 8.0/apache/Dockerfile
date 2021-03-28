@@ -15,6 +15,7 @@ RUN set -xe && \
             libxml2-dev \
             libzip-dev \
             zlib1g-dev \
+            unzip \
         && \
         apt-get clean && rm -rf /var/lib/apt/lists/* \
         && \

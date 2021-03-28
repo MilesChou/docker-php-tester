@@ -14,6 +14,7 @@ RUN set -xe && \
             libmemcached-libs \
             libpng \
             make \
+            unzip \
         && \
         apk add --no-cache --virtual .build-deps \
             autoconf \

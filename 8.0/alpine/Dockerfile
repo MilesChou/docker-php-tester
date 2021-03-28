@@ -15,6 +15,7 @@ RUN set -xe && \
             libpng \
             libzip \
             make \
+            unzip \
         && \
         apk add --no-cache --virtual .build-deps \
             autoconf \
