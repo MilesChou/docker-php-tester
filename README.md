@@ -71,6 +71,10 @@ docker pull ghcr.io/mileschou/php-tester
     + [4.3.0](https://pecl.php.net/package/redis/4.3.0) in PHP 5.x
 * soap
 * sockets
+* [swoole](https://pecl.php.net/package/swoole)
+    + 4+ in PHP 7.2+
+    + [2.2.0](https://pecl.php.net/package/swoole/2.2.0) in PHP 7.0 / PHP 7.1
+    + [1.10.5](https://pecl.php.net/package/swoole/1.10.5) in PHP 5.x
 * zip
 
 ## Credits

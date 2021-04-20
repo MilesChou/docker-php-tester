@@ -38,11 +38,13 @@ RUN set -xe && \
             memcached \
             mongodb \
             redis \
+            swoole-2.2.0 \
         && \
         docker-php-ext-enable \
             memcached \
             mongodb \
             redis \
+            swoole \
         && \
         php -m
 

@@ -47,10 +47,12 @@ RUN set -xe && \
         pecl install \
             memcached-2.2.0 \
             redis-4.3.0 \
+            swoole-1.10.5 \
         && \
         docker-php-ext-enable \
             memcached \
             redis \
+            swoole \
         && \
         apk del .build-deps \
         && \
