@@ -1,4 +1,4 @@
-FROM ghcr.io/mileschou/xdebug:7.4-apache
+FROM ghcr.io/mileschou/xdebug:8.2-alpine
 
 LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-php-tester" \
     maintainer="MilesChou <jangconan@gmail.com>"
@@ -7,17 +7,27 @@ ENV COMPOSER_PATH /usr/local/bin/composer
 
 # Install extensions
 RUN set -xe && \
-        apt-get update -y && apt-get install -y --no-install-recommends --no-install-suggests \
-            libgmp-dev \
-            libjpeg-dev \
+        # Runtime dependency
+        apk add --no-cache \
+            libgmpxx \
+            libjpeg-turbo \
+            libmemcached-libs \
+            libpng \
+            libzip \
+            make \
+            unzip \
+        && \
+        apk add --no-cache --virtual .build-deps \
+            autoconf \
+            cyrus-sasl-dev \
+            g++ \
+            gmp-dev \
+            libjpeg-turbo-dev \
             libmemcached-dev \
             libpng-dev \
             libxml2-dev \
             libzip-dev \
-            zlib1g-dev \
-            unzip \
-        && \
-        apt-get clean && rm -rf /var/lib/apt/lists/* \
+            zlib-dev \
         && \
         # See https://github.com/docker-library/php/issues/912#issuecomment-559918036
         docker-php-ext-configure gd \
@@ -37,13 +47,15 @@ RUN set -xe && \
             memcached \
             mongodb \
             redis \
-            swoole-4.8.12 \
+            swoole \
         && \
         docker-php-ext-enable \
             memcached \
             mongodb \
             redis \
             swoole \
+        && \
+        apk del .build-deps \
         && \
         php -m
 

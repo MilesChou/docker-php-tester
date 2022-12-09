@@ -24,7 +24,9 @@ docker pull ghcr.io/mileschou/php-tester
 
 ### PHP CLI
 
-* [`latest`, `8.0`, `cli`, `8.0-cli` (8.0/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.0/Dockerfile)
+* [`latest`, `8.2`, `cli`, `8.2-cli` (8.2/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.2/Dockerfile)
+* [`8.1`, `8.1-cli` (8.1/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.1/Dockerfile)
+* [`8.0`, `8.0-cli` (8.0/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.0/Dockerfile)
 * [`7.4`, `7.4-cli` (7.4/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.4/Dockerfile)
 * [`7.3`, `7.3-cli` (7.3/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.3/Dockerfile)
 * [`7.2`, `7.2-cli` (7.2/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.2/Dockerfile)
@@ -35,7 +37,9 @@ docker pull ghcr.io/mileschou/php-tester
 
 ### Alpine
 
-* [`alpine`, `8.0-alpine` (8.0/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.0/alpine/Dockerfile)
+* [`alpine`, `8.2-alpine` (8.2/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.2/alpine/Dockerfile)
+* [`8.1-alpine` (8.1/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.1/alpine/Dockerfile)
+* [`8.0-alpine` (8.0/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.0/alpine/Dockerfile)
 * [`7.4-alpine` (7.4/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.4/alpine/Dockerfile)
 * [`7.3-alpine` (7.3/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.3/alpine/Dockerfile)
 * [`7.2-alpine` (7.2/alpine/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.2/alpine/Dockerfile)
@@ -46,7 +50,9 @@ docker pull ghcr.io/mileschou/php-tester
 
 ### Apache
 
-* [`apache`, `8.0-apache` (8.0/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.0/apache/Dockerfile)
+* [`apache`, `8.2-apache` (8.2/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.2/apache/Dockerfile)
+* [`8.1-apache` (8.1/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.1/apache/Dockerfile)
+* [`8.0-apache` (8.0/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/8.0/apache/Dockerfile)
 * [`7.4-apache` (7.4/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.4/apache/Dockerfile)
 * [`7.3-apache` (7.3/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.3/apache/Dockerfile)
 * [`7.2-apache` (7.2/apache/Dockerfile)](https://github.com/MilesChou/docker-php-tester/blob/master/7.2/apache/Dockerfile)
@@ -65,6 +71,8 @@ docker pull ghcr.io/mileschou/php-tester
 * memcached (using 2.2.0 in PHP 5.x)
     + [2.2.0](https://pecl.php.net/package/memcached/2.2.0) in PHP 5.x
 * mongodb (using on PHP 7.x and PHP 8.x)
+    + [1.9.2](https://pecl.php.net/package/mongodb/1.9.2) in PHP 7.0
+    + [1.11.1](https://pecl.php.net/package/mongodb/1.11.1) in PHP 7.1
 * pdo_mysql
 * [redis](https://pecl.php.net/package/redis)
     + 5.0+ in PHP 7.x
@@ -72,8 +80,8 @@ docker pull ghcr.io/mileschou/php-tester
 * soap
 * sockets
 * [swoole](https://pecl.php.net/package/swoole)
-    + 4+ in PHP 7.2+
-    + [2.2.0](https://pecl.php.net/package/swoole/2.2.0) in PHP 7.0 / PHP 7.1
+    + [4.8.12](https://pecl.php.net/package/swoole/4.8.12) in PHP 7.2 / 7.3 / 7.4
+    + [2.2.0](https://pecl.php.net/package/swoole/2.2.0) in PHP 7.0 / 7.1
     + [1.10.5](https://pecl.php.net/package/swoole/1.10.5) in PHP 5.x
 * zip
 

@@ -1,4 +1,4 @@
-FROM ghcr.io/mileschou/xdebug:7.4-apache
+FROM ghcr.io/mileschou/xdebug:8.2-apache
 
 LABEL org.opencontainers.image.source="https://github.com/MilesChou/docker-php-tester" \
     maintainer="MilesChou <jangconan@gmail.com>"
@@ -37,7 +37,7 @@ RUN set -xe && \
             memcached \
             mongodb \
             redis \
-            swoole-4.8.12 \
+            swoole \
         && \
         docker-php-ext-enable \
             memcached \

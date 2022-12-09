@@ -11,7 +11,7 @@ RUN set -xe && \
         # See https://unix.stackexchange.com/questions/508724/failed-to-fetch-jessie-backports-repository/508791
         sed -i '/deb http:\/\/httpredir.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list \
         && \
-        apt-get update -y && apt-get install -y --no-install-recommends --no-install-suggests \
+        apt-get update -y && apt-get install -y --force-yes --no-install-recommends --no-install-suggests \
             libgmp-dev \
             libjpeg-dev \
             libmcrypt-dev \

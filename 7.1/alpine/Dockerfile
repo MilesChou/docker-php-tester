@@ -46,7 +46,7 @@ RUN set -xe && \
         && \
         pecl install \
             memcached \
-            mongodb \
+            mongodb-1.11.1 \
             redis \
             swoole-2.2.0 \
         && \
